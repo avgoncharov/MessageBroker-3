@@ -1,4 +1,5 @@
-﻿using MessageBroker.Subscribers;
+﻿using MessageBroker.Messages;
+using MessageBroker.Subscribers;
 using System;
 
 namespace TestConsole
@@ -19,13 +20,13 @@ namespace TestConsole
 
             vike.AddSubscriber(vasya);
 
-            vasya.Post("hello");
-            kolya.Post("imgay");
-            vike.Post("vi");
-            petia.Post("kek");
+            vasya.Post(new SimpleMessage("hello"));
+            kolya.Post(new SimpleMessage("imgay"));
+            vike.Post(new SimpleMessage("vi"));
+            petia.Post(new SimpleMessage("kek"));
 
             vasya.RemoveSubscriber(petia);
-            vasya.Post("after");
+            vasya.Post(new SimpleMessage("after"));
         }
     }
 }

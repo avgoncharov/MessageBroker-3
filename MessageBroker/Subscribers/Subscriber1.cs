@@ -16,14 +16,14 @@ namespace MessageBroker.Subscribers
             Name = name;
         }
 
-        public void AcceptMessage(string message)
+        public void AcceptMessage(IMessage message)
         {
-            Console.WriteLine($"{Name} получил {message}");
+            Console.WriteLine($"{Name} получил {message.GetMessage()}");
         }
 
-        public void Post(string message)
+        public void Post(IMessage message)
         {
-            _messageBroker.Post(new SimpleMessage($"{Name}: {message}"));
+            _messageBroker.Post(message);
         }
 
         public void AddSubscriber(ISubscriber subscriber)

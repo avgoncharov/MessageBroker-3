@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MessageBroker.Messages;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,7 +9,7 @@ namespace MessageBroker.Subscribers
     {
         void AddSubscriber(ISubscriber subscriber);
         void RemoveSubscriber(ISubscriber subscriber);
-        void Post(string message);
-        void AcceptMessage(string message);
+        void Post(IMessage message);
+        void AcceptMessage(IMessage message);
     }
 }

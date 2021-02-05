@@ -18,7 +18,7 @@ namespace MessageBroker
         {
             foreach(var sub in _subscribers)
             {
-                sub.AcceptMessage(message.GetMessage());
+                sub.AcceptMessage(message);
             }
         }
 
